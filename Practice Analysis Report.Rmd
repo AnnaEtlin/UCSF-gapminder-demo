@@ -1,0 +1,36 @@
+---
+title: "Practice Analysis Report"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Read and Plot cleaned gapminder file
+
+I read in gapminder file, now I'm going to plot **Population** and **LifeExp** 
+
+```{r reading_gapminder}
+##Read in our cleaned gapminder file
+
+gapM <- read.table(file = "output/combined_gapMinder.tsv", sep = "\t", header = TRUE)
+```
+
+```{r ploting_gapminder}
+plot(gapM$pop, gapM$lifeExp, main = "Gapminder", xlab = "Population", ylab = "Life")
+```
+
+## Mean for Polulation and LifeExp per Country
+
+Aggregate data for **Ppulation** and **LifeExp** per **Country**
+
+```{r aggregating_pop_life_per_county}
+agg_poplife_country_gapM <- aggregate(cbind(pop,lifeExp)~country, data=gapM, FUN=mean)
+print(head(agg_poplife_country_gapM))
+```
+
