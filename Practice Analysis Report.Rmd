@@ -25,9 +25,9 @@ gapM <- read.table(file = "output/combined_gapMinder.tsv", sep = "\t", header = 
 plot(gapM$pop, gapM$lifeExp, main = "Gapminder", xlab = "Population", ylab = "Life")
 ```
 
-## Mean for Polulation and LifeExp per Country
+## Mean for Population and LifeExp per Country
 
-Aggregate data for **Ppulation** and **LifeExp** per **Country**
+Aggregate data for **Population** and **LifeExp** per **Country**
 
 ```{r aggregating_pop_life_per_county}
 agg_poplife_country_gapM <- aggregate(cbind(pop,lifeExp)~country, data=gapM, FUN=mean)
