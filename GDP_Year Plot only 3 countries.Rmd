@@ -1,0 +1,35 @@
+---
+title: "Gapminder Three Countries"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Gapminder Data
+
+```{r reading combined_gapminder data}
+gapM <- read.table(file = "output/combined_gapMinder.tsv", sep = "\t", header = TRUE)
+```
+
+##GPD per Year for Algeria
+
+```{r subset and plot Algeria}
+gapM_1 <- subset(gapM, country == "Algeria")
+plot(gapM_1$year, gapM_1$gdpPercap, main = "Algeria GDP per Year", xlab = "year", ylab = "GDP")
+```
+
+##GPD per Year for Chile
+
+```{r subset and plot Chile}
+gapM_2 <- subset(gapM, country == "Chile")
+plot(gapM_2$year, gapM_2$gdpPercap, main = "Chile GDP per Year", xlab = "year", ylab = "GDP")
+```
+
+##GPD per Year for Ecuador
+
+```{r subset and plot Ecuador}
+gapM_3 <- subset(gapM, country == "Ecuador")
+plot(gapM_3$year, gapM_3$gdpPercap, main = "Ecuador GDP per Year", xlab = "year", ylab = "GDP")
+```
